@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>Creat New Post</h1>
+    <a href="#" routerLink="/post/index" class="btn btn-primary">Back</a>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input 
+                type="text"
+                class="form-control"
+                formControlName="title"
+                id="title">
+                <div class="alert alert-danger"
+                    *ngIf="f.title.touched && f.title.invalid">
+                    <div *ngIf="f.title.error.required">Title is Required</div>
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="body">Body</label>
+            <textarea
+                formControlName="body"
+                class="form-control"
+                id="body"
+                type="text">
+            </textarea>
+            <div class="alert alert-danger"
+                *ngIf="f.title.touched && f.title.invalid">
+                <div *ngIf="f.title.error.required">Body is required</div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+
+</div>
